@@ -1,20 +1,18 @@
 import React from 'react';
 
 export function HocComponent(WrappedComponent) {
-    const lastName = 'Henriksen';
-
     return class extends React.Component {
         constructor(props) {
             super(props);
             this.state = {
-                userName: ''
+                username: ''
             }
             this.onClickHandler = this.onClickHandler.bind(this);
         }
 
         onClickHandler() {
             alert("Hello from Hoc, we changed the name for you");
-            this.setState({userName: "Pernille"});
+            this.setState({username: "Pernille"});
         }
 
         render() {
@@ -25,8 +23,7 @@ export function HocComponent(WrappedComponent) {
 
             return (
                 <WrappedComponent
-                    userName={this.state.userName}
-                    lastName={lastName}
+                    username={this.state.username}
                     style={{backgroundColor: "lightblue"}}
                     {...this.props}
                     {...this.state}
